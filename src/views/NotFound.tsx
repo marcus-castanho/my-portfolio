@@ -15,7 +15,12 @@ export const NotFound = () => {
                         <p className="px-6 pb-10 text-center text-gray-100 sm:text-left">
                             The resource you are looking for could not be found
                         </p>
-                        <Link href="/" target="_self" aria-label="home-link">
+                        <Link
+                            href="/"
+                            target="_self"
+                            aria-label="home-link"
+                            className="hover:underline"
+                        >
                             Go Home
                         </Link>
                     </div>
