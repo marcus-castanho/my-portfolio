@@ -27,6 +27,7 @@ export const Error: FC<ErrorProps> = ({ error, reset }) => {
                                 href="/"
                                 target="_self"
                                 aria-label="home-link"
+                                className="hover:underline"
                             >
                                 Go Home
                             </Link>
