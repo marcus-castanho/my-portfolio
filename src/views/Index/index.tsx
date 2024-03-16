@@ -29,7 +29,11 @@ const GreetingsCard = () => {
                         <TwitterIcon size={32} fillColor="white" />
                     </Link>
                 </div>
-                <Link href={OTHER_LINKS_URL} className="hover:underline">
+                <Link
+                    href={OTHER_LINKS_URL}
+                    target="_blank"
+                    className="hover:underline"
+                >
                     Other links
                 </Link>
             </div>
@@ -73,19 +77,7 @@ export const Index = () => {
             <Main>
                 <div className="flex w-full flex-col">
                     <div className="flex h-[60%]">
-                        <div className="flex h-full w-[40%] flex-col items-start justify-center gap-6 p-20">
-                            <p className="text-lg">Hi!🖐</p>
-                            <div>
-                                <h1 className="text-5xl">Marcus</h1>
-                                <p className="text-lg">Full stack developer</p>
-                            </div>
-                            <p className="text-lg">
-                                {`I'm a software developer from Brazil who likes to build
-                                scalable back end services and user friendly front
-                                end applications.`}
-                            </p>
-                        </div>
-                        <div className="flex h-full w-[60%] items-center justify-center">
+                        <div className="flex h-full w-[40%] items-center justify-center">
                             <div className="relative min-h-80 min-w-60">
                                 <Image
                                     src="/assets/3x4.png"
@@ -95,6 +87,15 @@ export const Index = () => {
                                     className="rounded-[2rem]"
                                 />
                             </div>
+                        </div>
+                        <div className="flex h-full w-[60%] flex-col items-start justify-center gap-6 p-12">
+                            <p className="text-lg">Hi!🖐</p>
+                            <h1 className="text-5xl">Marcus</h1>
+                            <p className="text-lg">
+                                {`I'm a software developer from Brazil who likes to build
+                                scalable back end services and user friendly front
+                                end applications.`}
+                            </p>
                         </div>
                     </div>
                     <div className="flex h-[40%]">
