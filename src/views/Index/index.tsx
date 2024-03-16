@@ -105,7 +105,7 @@ export const Index = () => {
                     <div className="flex w-[40%] items-center justify-center">
                         <ProfilePicture />
                     </div>
-                    <div className="flex w-[80%] items-center sm:w-[60%]">
+                    <div className="flex w-[90%] items-center sm:w-[60%]">
                         <Presentation />
                     </div>
                 </div>
