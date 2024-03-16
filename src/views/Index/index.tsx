@@ -12,6 +12,7 @@ const GreetingsCard = () => {
     const GITHUB_URL = 'https://github.com/marcus-castanho';
     const LINKEDIN_URL = 'https://www.linkedin.com/in/marcus-castanho';
     const TWITTER_URL = 'https://twitter.com/marcus_castanho';
+    const OTHER_LINKS_URL = 'https://marcuscastanho.bio.link';
 
     return (
         <Card type="greetings">
@@ -28,7 +29,7 @@ const GreetingsCard = () => {
                         <TwitterIcon size={32} fillColor="white" />
                     </Link>
                 </div>
-                <Link href="" className="hover:underline">
+                <Link href={OTHER_LINKS_URL} className="hover:underline">
                     Other links
                 </Link>
             </div>
