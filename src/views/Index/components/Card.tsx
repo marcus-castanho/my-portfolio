@@ -14,7 +14,7 @@ export const Card: FC<CardProps> = ({ children, type }) => {
                     .with(
                         'greetings',
                         () =>
-                            'h-full rounded-[3rem]  bg-[#2800E8] p-11 hover:brightness-125',
+                            'h-full rounded-[3rem]  bg-blue-800 p-11 hover:brightness-125',
                     )
                     .with(
                         'work',
