@@ -123,11 +123,11 @@ export const Index = () => {
                     <div className="w-full sm:w-[20%]">
                         <GreetingsCard />
                     </div>
-                    <div className="flex w-full sm:w-[80%]">
-                        <div className="w-[25%]">
+                    <div className="flex w-full flex-col sm:w-[80%] sm:flex-row">
+                        <div className="w-full sm:w-[25%]">
                             <AboutCard />
                         </div>
-                        <div className="w-[75%]">
+                        <div className="w-full sm:w-[75%]">
                             <div className="flex h-1/2">
                                 <WorksCard />
                                 <BlogCard />
