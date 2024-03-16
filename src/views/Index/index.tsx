@@ -99,7 +99,7 @@ const ContactCard = () => {
 
 export const Index = () => {
     return (
-        <main className="h-screen">
+        <main className="h-[100dvh]">
             <div className="flex h-full flex-col">
                 <div className="flex max-sm:flex-col-reverse max-sm:items-center max-sm:justify-center max-sm:pb-8 sm:h-[60%]">
                     <div className="flex w-[40%] items-center justify-center">
