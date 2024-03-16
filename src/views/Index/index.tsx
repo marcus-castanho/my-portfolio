@@ -101,19 +101,19 @@ export const Index = () => {
     return (
         <main className="h-screen">
             <div className="flex h-full flex-col">
-                <div className="flex h-[60%]">
+                <div className="flex max-sm:min-h-full max-sm:flex-col-reverse max-sm:items-center max-sm:justify-center sm:h-[60%]">
                     <div className="flex w-[40%] items-center justify-center">
                         <ProfilePicture />
                     </div>
-                    <div className="flex w-[60%] items-center">
+                    <div className="flex w-[80%] items-center sm:w-[60%]">
                         <Presentation />
                     </div>
                 </div>
-                <div className="flex h-[40%]">
-                    <div className="w-[40%]">
+                <div className="flex flex-col-reverse sm:h-[40%] sm:flex-row">
+                    <div className="w-full sm:w-[40%]">
                         <GreetingsCard />
                     </div>
-                    <div className="w-[60%]">
+                    <div className="w-full sm:w-[60%]">
                         <div className="flex h-1/2">
                             <WorksCard />
                             <AboutCard />
