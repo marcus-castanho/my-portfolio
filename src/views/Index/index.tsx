@@ -97,6 +97,16 @@ const ContactCard = () => {
     );
 };
 
+const BlogCard = () => {
+    return (
+        <Card type="blog">
+            <div className="flex h-full items-center justify-start">
+                <h2 className="text-2xl text-black">Blog</h2>
+            </div>
+        </Card>
+    );
+};
+
 export const Index = () => {
     return (
         <main className="h-[100dvh]">
@@ -110,16 +120,21 @@ export const Index = () => {
                     </div>
                 </div>
                 <div className="flex flex-col-reverse sm:h-[40%] sm:flex-row">
-                    <div className="w-full sm:w-[40%]">
+                    <div className="w-full sm:w-[20%]">
                         <GreetingsCard />
                     </div>
-                    <div className="w-full sm:w-[60%]">
-                        <div className="flex h-1/2">
-                            <WorksCard />
+                    <div className="flex w-full sm:w-[80%]">
+                        <div className="w-[25%]">
                             <AboutCard />
                         </div>
-                        <div className="h-1/2">
-                            <ContactCard />
+                        <div className="w-[75%]">
+                            <div className="flex h-1/2">
+                                <WorksCard />
+                                <BlogCard />
+                            </div>
+                            <div className="h-1/2">
+                                <ContactCard />
+                            </div>
                         </div>
                     </div>
                 </div>
