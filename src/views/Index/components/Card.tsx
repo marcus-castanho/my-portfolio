@@ -14,24 +14,24 @@ export const Card: FC<CardProps> = ({ children, type }) => {
                     .with(
                         'greetings',
                         () =>
-                            'h-full rounded-[4rem]  bg-[#2800E8] p-11 hover:brightness-125',
+                            'h-full rounded-[3rem]  bg-[#2800E8] p-11 hover:brightness-125',
                     )
                     .with(
                         'work',
                         () =>
-                            'h-full rounded-[4rem] bg-gray-200 p-11 hover:brightness-125',
+                            'h-full rounded-[3rem] bg-gray-200 p-11 hover:brightness-125',
                     )
                     .with(
                         'about',
                         () =>
-                            'h-full rounded-[4rem] bg-[#1B1B1F] p-11 hover:brightness-125',
+                            'h-full rounded-[3rem] bg-[#1B1B1F] p-11 hover:brightness-125',
                     )
                     .with(
                         'contact',
                         () =>
-                            'h-full rounded-[4rem] bg-[#FFF480] p-11 hover:brightness-125',
+                            'h-full rounded-[3rem] bg-[#FFF480] p-11 hover:brightness-125',
                     )
-                    .otherwise(() => 'h-full rounded-[4rem] bg-white p-11')}
+                    .otherwise(() => 'h-full rounded-[3rem] bg-white p-11')}
             >
                 {children}
             </div>
