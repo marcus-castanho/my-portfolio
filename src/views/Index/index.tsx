@@ -7,36 +7,44 @@ import { AboutCard } from './components/AboutCard';
 import { ContactCard } from './components/ContactCard';
 import { BlogCard } from './components/BlogCard';
 
+const CardsGrid = () => {
+    return (
+        <div className="grid h-full grid-cols-[20%_20%_30%_30%] grid-rows-2">
+            <div className="col-span-1 row-span-2">
+                <GreetingsCard />
+            </div>
+            <div className="col-span-1 row-span-2">
+                <AboutCard />
+            </div>
+            <div className="col-span-1 row-span-1">
+                <WorksCard />
+            </div>
+            <div className="col-span-1 row-span-1">
+                <BlogCard />
+            </div>
+            <div className="col-span-2 row-span-1">
+                <ContactCard />
+            </div>
+        </div>
+    );
+};
+
 export const Index = () => {
     return (
         <main className="h-[100dvh]">
             <div className="flex h-full flex-col">
-                <div className="flex max-sm:flex-col-reverse max-sm:items-center max-sm:justify-center max-sm:pb-8 sm:h-[60%]">
-                    <div className="flex w-[40%] items-center justify-center">
-                        <ProfilePicture />
-                    </div>
-                    <div className="flex w-[90%] items-center sm:w-[60%]">
-                        <Presentation />
+                <div className="sm:h-[60%]">
+                    <div className="flex h-full max-sm:flex-col-reverse max-sm:items-center max-sm:justify-center max-sm:pb-8">
+                        <div className="flex w-[40%] items-center justify-center">
+                            <ProfilePicture />
+                        </div>
+                        <div className="flex w-[90%] items-center sm:w-[60%]">
+                            <Presentation />
+                        </div>
                     </div>
                 </div>
-                <div className="flex flex-col-reverse sm:h-[40%] sm:flex-row">
-                    <div className="w-full sm:w-[20%]">
-                        <GreetingsCard />
-                    </div>
-                    <div className="flex w-full flex-col sm:w-[80%] sm:flex-row">
-                        <div className="w-full sm:w-[25%]">
-                            <AboutCard />
-                        </div>
-                        <div className="w-full sm:w-[75%]">
-                            <div className="flex h-1/2">
-                                <WorksCard />
-                                <BlogCard />
-                            </div>
-                            <div className="h-1/2">
-                                <ContactCard />
-                            </div>
-                        </div>
-                    </div>
+                <div className="sm:h-[40%]">
+                    <CardsGrid />
                 </div>
             </div>
         </main>
