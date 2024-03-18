@@ -7,6 +7,19 @@ import { AboutCard } from './components/AboutCard';
 import { ContactCard } from './components/ContactCard';
 import { BlogCard } from './components/BlogCard';
 
+const ProfileHero = () => {
+    return (
+        <div className="flex h-full max-sm:flex-col-reverse max-sm:items-center max-sm:justify-center max-sm:pb-8">
+            <div className="flex w-[40%] items-center justify-center">
+                <ProfilePicture />
+            </div>
+            <div className="flex w-[90%] items-center sm:w-[60%]">
+                <Presentation />
+            </div>
+        </div>
+    );
+};
+
 const CardsGrid = () => {
     return (
         <div className="grid h-full grid-cols-[20%_20%_30%_30%] grid-rows-2">
@@ -34,14 +47,7 @@ export const Index = () => {
         <main className="h-[100dvh]">
             <div className="flex h-full flex-col">
                 <div className="sm:h-[60%]">
-                    <div className="flex h-full max-sm:flex-col-reverse max-sm:items-center max-sm:justify-center max-sm:pb-8">
-                        <div className="flex w-[40%] items-center justify-center">
-                            <ProfilePicture />
-                        </div>
-                        <div className="flex w-[90%] items-center sm:w-[60%]">
-                            <Presentation />
-                        </div>
-                    </div>
+                    <ProfileHero />
                 </div>
                 <div className="sm:h-[40%]">
                     <CardsGrid />
