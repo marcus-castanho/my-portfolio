@@ -6,6 +6,7 @@ import { WorksCard } from './components/WorksCard';
 import { AboutCard } from './components/AboutCard';
 import { ContactCard } from './components/ContactCard';
 import { BlogCard } from './components/BlogCard';
+import { Main } from '@/components/Main';
 
 const ProfileHero = () => {
     return (
@@ -44,7 +45,7 @@ const CardsGrid = () => {
 
 export const Index = () => {
     return (
-        <main className="h-[100dvh]">
+        <Main>
             <div className="flex h-full flex-col">
                 <div className="sm:h-[60%]">
                     <ProfileHero />
@@ -53,6 +54,6 @@ export const Index = () => {
                     <CardsGrid />
                 </div>
             </div>
-        </main>
+        </Main>
     );
 };
