@@ -4,5 +4,5 @@ type MainProps = {
     children: ReactNode;
 };
 export const Main: FC<MainProps> = ({ children }) => {
-    return <main className="flex flex-1">{children}</main>;
+    return <main className="h-[100dvh]">{children}</main>;
 };
