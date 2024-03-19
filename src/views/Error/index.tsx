@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import Link from 'next/link';
 import { ClientWrapper } from './components/ClientWrapper';
 import { ResetButton } from './components/ResetButton';
-import { PageContainer } from '@/components/PageContainer';
 import { Main } from '@/components/Main';
 
 export type ErrorProps = {
@@ -13,8 +12,8 @@ export type ErrorProps = {
 export const Error: FC<ErrorProps> = ({ error, reset }) => {
     return (
         <ClientWrapper error={error}>
-            <PageContainer>
-                <Main>
+            <Main>
+                <div className="flex h-full flex-col justify-center">
                     <div className="flex w-full items-center justify-center">
                         <div className="flex flex-col items-center">
                             <h1 className="flex justify-center px-6 py-10 text-center text-3xl font-bold sm:text-left">
@@ -33,8 +32,8 @@ export const Error: FC<ErrorProps> = ({ error, reset }) => {
                             </Link>
                         </div>
                     </div>
-                </Main>
-            </PageContainer>
+                </div>
+            </Main>
         </ClientWrapper>
     );
 };

@@ -1,12 +1,11 @@
 import React from 'react';
-import { PageContainer } from '@/components/PageContainer';
 import { Main } from '@/components/Main';
 import Link from 'next/link';
 
 export const NotFound = () => {
     return (
-        <PageContainer>
-            <Main>
+        <Main>
+            <div className="flex h-full flex-col justify-center">
                 <div className="flex w-full items-center justify-center">
                     <div className="flex flex-col items-center">
                         <h1 className="px-6 pb-4 pt-10 text-center text-5xl font-bold sm:text-left">
@@ -25,7 +24,7 @@ export const NotFound = () => {
                         </Link>
                     </div>
                 </div>
-            </Main>
-        </PageContainer>
+            </div>
+        </Main>
     );
 };
