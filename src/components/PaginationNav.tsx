@@ -43,7 +43,7 @@ const NavButton: FC<NavButtonProps> = ({
                 .with(
                     { isSelected: true },
                     () =>
-                        'bg-primary-verdant flex items-center justify-between rounded-md p-1 text-white dark:text-black',
+                        'flex items-center justify-between rounded-md bg-gray-200 p-1 text-black',
                 )
                 .with(
                     { disabled: true },
