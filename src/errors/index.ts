@@ -5,6 +5,7 @@ export class CustomError extends Error {
     ) {
         super(errorMessage);
         this.name = errorName;
+        this.message = errorMessage || '';
     }
 }
 
@@ -15,6 +16,7 @@ export class InvalidResponseDataError extends CustomError {
     ) {
         super(errorMessage);
         this.name = errorName;
+        this.message = errorMessage || '';
     }
 }
 
@@ -27,6 +29,7 @@ export class HTTPException extends CustomError {
     ) {
         super(errorMessage);
         this.name = errorName;
+        this.message = errorMessage || '';
     }
 }
 
