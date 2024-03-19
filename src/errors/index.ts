@@ -10,8 +10,8 @@ export class CustomError extends Error {
 
 export class InvalidResponseDataError extends CustomError {
     constructor(
-        readonly errorName = 'InvalidResponseDataError',
         readonly errorMessage?: string,
+        readonly errorName = 'InvalidResponseDataError',
     ) {
         super(errorMessage);
         this.name = errorName;
