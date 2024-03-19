@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export function usePagination() {
-    const [page, setPage] = useState(1);
+export function usePagination(initialPage = 1) {
+    const [page, setPage] = useState(initialPage);
 
     const changePage = (selectedPage: 'previous' | 'next' | number) => {
         setPage((state) => {
@@ -66,6 +66,10 @@ export function usePagination() {
             indexesArr: [firstPage, null, ...lastPart],
         };
     };
+
+    useEffect(() => {
+        setPage(initialPage);
+    }, [initialPage]);
 
     return {
         page,
