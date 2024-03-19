@@ -8,8 +8,7 @@ export const ProfilePicture = () => {
                 src="/assets/3x4.png"
                 alt="profile-picture"
                 fill
-                objectFit="contain"
-                className="rounded-[2rem]"
+                className="rounded-[2rem] object-contain"
             />
         </div>
     );
