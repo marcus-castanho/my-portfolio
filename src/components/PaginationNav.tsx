@@ -67,12 +67,14 @@ type PaginationNavProps = {
     pagesIndexes: ReturnType<
         ReturnType<typeof usePagination>['getPagesIndexes']
     >['indexesArr'];
+    hideIndexes?: boolean;
 };
 
 export const PaginationNav: FC<PaginationNavProps> = ({
     page,
     changePage,
     pagesIndexes,
+    hideIndexes = false,
 }) => {
     const isFirstPage = page === 1;
     const isLastPage = page === pagesIndexes[pagesIndexes.length - 1];
@@ -92,7 +94,9 @@ export const PaginationNav: FC<PaginationNavProps> = ({
                     Previous
                 </div>
             </NavButton>
-            <div className="flex gap-2 max-sm:hidden">
+            <div
+                className={hideIndexes ? 'hidden' : 'flex gap-2 max-sm:hidden'}
+            >
                 {pagesIndexes.map((pageIndex) =>
                     pageIndex === null ? (
                         <GapBox key={pageIndex} />
