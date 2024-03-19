@@ -38,6 +38,7 @@ export const Navigation: FC<NavigationProps> = ({
                 router.push(`${pathname}?page=${pageToGo}`);
             }}
             pagesIndexes={getPagesIndexes(totalPages, 5).indexesArr}
+            hideIndexes
         />
     );
 };
