@@ -17,8 +17,8 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
 
     return (
         <Link href={article.url}>
-            <div className="w-[calc(100px*5)] hover:brightness-125">
-                <div className="relative h-[calc(42px*5)]">
+            <div className="w-[calc(100px*3)] hover:brightness-125 sm:w-[calc(100px*5)] md:w-[calc(100px*4)]">
+                <div className="relative h-[calc(42px*3)] max-h-[calc(42px*3)] sm:h-[calc(42px*5)] sm:max-h-[calc(42px*5)] md:h-[calc(42px*4)] md:max-h-[calc(42px*4)]">
                     <Image
                         src={article.cover_image}
                         alt="article-cover-image"
@@ -26,16 +26,18 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                         className="rounded-t-lg object-contain"
                     />
                 </div>
-                <div className="flex h-44 flex-col gap-4 rounded-b-lg bg-gray-950 p-4">
+                <div className="flex h-80 w-full flex-col justify-between gap-4 rounded-b-lg bg-gray-950 p-4 sm:h-60">
+                    <div className="flex flex-col gap-4">
+                        <h2 className="text-xl font-bold">{article.title}</h2>
+                        <p className="overflow-hidden text-ellipsis">
+                            {article.description}
+                        </p>
+                    </div>
                     <time className="flex text-sm text-gray-200">
                         {isValid(publicationDate)
                             ? format(publicationDate, 'd MMMM y')
                             : ''}
                     </time>
-                    <h2 className="text-xl font-bold">{article.title}</h2>
-                    <p className="overflow-hidden text-ellipsis text-nowrap">
-                        {article.description}
-                    </p>
                 </div>
             </div>
         </Link>
@@ -98,12 +100,12 @@ export const Blog: FC<BlogProps> = async ({ page }) => {
                 </div>
                 <div className="flex flex-1 flex-col">
                     <div className="flex flex-1 flex-col p-8">
-                        <div className="flex h-full items-center justify-center p-8">
+                        <div className="flex h-full items-center justify-center p-4 sm:p-8">
                             <div
                                 className={
                                     articles.items.length < 3
-                                        ? 'flex items-center justify-center gap-8'
-                                        : 'grid grid-cols-3 gap-8'
+                                        ? 'flex flex-col items-center justify-center gap-8 sm:flex-row'
+                                        : 'grid grid-cols-1 gap-8 sm:grid-cols-3'
                                 }
                             >
                                 {articles.items.map((article, index) => {
