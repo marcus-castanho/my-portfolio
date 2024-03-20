@@ -52,7 +52,7 @@ type BlogProps = {
     page: number;
 };
 export const Blog: FC<BlogProps> = async ({ page }) => {
-    const DEV_TO_PROFILE_USERNAME = 'marcus_Castanho';
+    const DEV_TO_PROFILE_USERNAME = 'marcus_castanho';
     const ITEMS_PER_PAGE = 9;
     const articles = await getArticles(
         {
