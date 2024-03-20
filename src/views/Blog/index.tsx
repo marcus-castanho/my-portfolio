@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Article, getArticles } from '@/services/devToApi/routes/getArticles';
 import { log } from '@/logger';
 import { Navigation } from './components/Navigation';
+import { DEVtoLogo } from '@/components/DEVtoLogo';
 
 type ArticleCardProps = {
     article: Article;
@@ -26,18 +27,21 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                         className="rounded-t-lg object-contain"
                     />
                 </div>
-                <div className="flex h-80 w-full flex-col justify-between gap-4 rounded-b-lg bg-gray-950 p-4 sm:h-60">
+                <div className="flex h-80 w-full flex-col justify-between gap-4 rounded-b-lg bg-gray-950 p-4 sm:h-72">
                     <div className="flex flex-col gap-4">
                         <h2 className="text-xl font-bold">{article.title}</h2>
                         <p className="overflow-hidden text-ellipsis">
                             {article.description}
                         </p>
                     </div>
-                    <time className="flex text-sm text-gray-200">
-                        {isValid(publicationDate)
-                            ? format(publicationDate, 'd MMMM y')
-                            : ''}
-                    </time>
+                    <div className="flex items-end justify-between">
+                        <time className="flex text-sm text-gray-200">
+                            {isValid(publicationDate)
+                                ? format(publicationDate, 'd MMMM y')
+                                : ''}
+                        </time>
+                        <DEVtoLogo size={36} />
+                    </div>
                 </div>
             </div>
         </Link>
