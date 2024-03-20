@@ -14,40 +14,44 @@ type BlogProps = {
 export const Blog: FC<BlogProps> = async ({ page }) => {
     const DEV_TO_PROFILE_USERNAME = 'marcus_castanho';
     const ITEMS_PER_PAGE = 9;
-    const articles = await getArticles(
-        {
-            limit: ITEMS_PER_PAGE,
-            page,
-            username: DEV_TO_PROFILE_USERNAME,
-        },
-        { type: 'SSR', options: { cache: 'no-store' } },
-    )
-        .then(({ success, data }) => {
-            if (!success) return { pages: 0, items: [] as Article[] };
 
-            return data;
-        })
-        .catch((error) => {
-            log({ payload: error, message: error.message, level: 'error' });
-            return { pages: 0, items: [] as Article[] };
-        });
-    const nextPageArticles = await getArticles(
-        {
-            limit: ITEMS_PER_PAGE,
-            page: page + 1,
-            username: DEV_TO_PROFILE_USERNAME,
-        },
-        { type: 'SSR', options: { cache: 'no-store' } },
-    )
-        .then(({ success, data }) => {
-            if (!success) return { pages: 0, items: [] as Article[] };
+    const handleRequestResponse = async (
+        reqFnPromise: ReturnType<typeof getArticles>,
+    ) => {
+        return reqFnPromise
+            .then(({ success, data }) => {
+                if (!success) return { pages: 0, items: [] as Article[] };
 
-            return data;
-        })
-        .catch((error) => {
-            log({ payload: error, message: error.message, level: 'error' });
-            return { pages: 0, items: [] as Article[] };
-        });
+                return data;
+            })
+            .catch((error) => {
+                log({ payload: error, message: error.message, level: 'error' });
+                return { pages: 0, items: [] as Article[] };
+            });
+    };
+
+    const articles = await handleRequestResponse(
+        getArticles(
+            {
+                limit: ITEMS_PER_PAGE,
+                page,
+                username: DEV_TO_PROFILE_USERNAME,
+            },
+            { type: 'SSR', options: { cache: 'no-store' } },
+        ),
+    );
+
+    const nextPageArticles = await handleRequestResponse(
+        getArticles(
+            {
+                limit: ITEMS_PER_PAGE,
+                page: page + 1,
+                username: DEV_TO_PROFILE_USERNAME,
+            },
+            { type: 'SSR', options: { cache: 'no-store' } },
+        ),
+    );
+
     const isLastPage =
         articles.items.length < ITEMS_PER_PAGE ||
         nextPageArticles.items.length === 0;
