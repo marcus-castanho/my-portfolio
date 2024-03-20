@@ -5,6 +5,7 @@ import { Article, getArticles } from '@/services/devToApi/routes/getArticles';
 import { log } from '@/logger';
 import { Navigation } from './components/Navigation';
 import { ArticlesList } from './components/ArticlesList';
+import { PageTitle } from '@/components/PageTitle';
 
 type BlogProps = {
     page: number;
@@ -55,11 +56,7 @@ export const Blog: FC<BlogProps> = async ({ page }) => {
         <Main>
             <div className="flex h-full flex-col">
                 <Header />
-                <div className="flex items-center justify-center">
-                    <h1 className="text-4xl font-semibold">
-                        <span className="opacity-70">/</span>blog
-                    </h1>
-                </div>
+                <PageTitle title="blog" />
                 <div className="flex flex-1 flex-col">
                     <div className="flex flex-1 flex-col p-8">
                         <ArticlesList articles={articles.items} />
