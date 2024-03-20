@@ -17,7 +17,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
     const publicationDate = new Date(article.published_at);
 
     return (
-        <Link href={article.url}>
+        <Link href={article.url} target="_blank">
             <div className="w-[calc(100px*3)] hover:brightness-125 sm:w-[calc(100px*5)] md:w-[calc(100px*4)]">
                 <div className="relative h-[calc(42px*3)] max-h-[calc(42px*3)] sm:h-[calc(42px*5)] sm:max-h-[calc(42px*5)] md:h-[calc(42px*4)] md:max-h-[calc(42px*4)]">
                     <Image
@@ -52,7 +52,7 @@ type BlogProps = {
     page: number;
 };
 export const Blog: FC<BlogProps> = async ({ page }) => {
-    const DEV_TO_PROFILE_USERNAME = 'marcus_castanho';
+    const DEV_TO_PROFILE_USERNAME = 'marcus_Castanho';
     const ITEMS_PER_PAGE = 9;
     const articles = await getArticles(
         {
