@@ -6,6 +6,7 @@ import { log } from '@/logger';
 import { Navigation } from './components/Navigation';
 import { ArticlesList } from './components/ArticlesList';
 import { PageTitle } from '@/components/PageTitle';
+import { NoContentMessage } from '@/components/NoContentMessage';
 
 type BlogProps = {
     page: number;
@@ -51,21 +52,28 @@ export const Blog: FC<BlogProps> = async ({ page }) => {
         articles.items.length < ITEMS_PER_PAGE ||
         nextPageArticles.items.length === 0;
     const dinamicTotalPages = isLastPage ? page : page + 1;
+    const pageIsEmpty = articles.items.length === 0;
 
     return (
         <Main>
             <div className="flex h-full flex-col">
                 <Header />
                 <PageTitle title="blog" />
-                <div className="flex flex-1 flex-col">
-                    <div className="flex flex-1 flex-col p-8">
-                        <ArticlesList articles={articles.items} />
-                        <Navigation
-                            initialPage={page}
-                            totalPages={dinamicTotalPages}
-                        />
+                {pageIsEmpty ? (
+                    <div className="flex flex-1 justify-center">
+                        <NoContentMessage />
                     </div>
-                </div>
+                ) : (
+                    <div className="flex flex-1 flex-col">
+                        <div className="flex flex-1 flex-col p-8">
+                            <ArticlesList articles={articles.items} />
+                            <Navigation
+                                initialPage={page}
+                                totalPages={dinamicTotalPages}
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
         </Main>
     );
