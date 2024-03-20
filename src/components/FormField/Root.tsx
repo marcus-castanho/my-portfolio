@@ -14,8 +14,8 @@ export const Root: FC<RootProps> = ({
     required = false,
 }) => {
     return (
-        <div className="flex flex-col justify-end p-8">
-            <label htmlFor={inputId} className="block pb-2 text-xl font-bold">
+        <div className="flex flex-col justify-end px-8 py-4">
+            <label htmlFor={inputId} className="block pb-2 font-bold">
                 {label}
                 {required && <span className="text-secondary-red pl-1">*</span>}
             </label>
