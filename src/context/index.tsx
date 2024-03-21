@@ -1,6 +1,7 @@
 'use client';
 
 import React, { ReactNode, ComponentType, PropsWithChildren } from 'react';
+import { ToastProvider } from './ToastContext';
 
 type ComposedContextsProps = {
     components: ComponentType<PropsWithChildren<unknown>>[];
@@ -24,7 +25,7 @@ type AppContextProviderProps = {
 };
 export function AppContextProvider({
     children,
-    providers = [],
+    providers = [ToastProvider],
 }: AppContextProviderProps) {
     return (
         <ComposedContexts components={providers}>{children}</ComposedContexts>
