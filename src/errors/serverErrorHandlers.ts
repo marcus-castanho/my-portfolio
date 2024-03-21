@@ -44,7 +44,7 @@ export function handleApiErrorResponse(error) {
     }
 
     return NextResponse.json(
-        { status: statusCode, message: 'Internal Server Error' },
+        { status: statusCode, message },
         { status: statusCode },
     );
 }
