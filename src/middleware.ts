@@ -18,9 +18,10 @@ export async function middleware(request: NextRequest) {
     try {
         const { pathname } = request.nextUrl;
         const isApiRoute = pathname.startsWith('/api');
+        const isExternalService = pathname.startsWith('/api/external');
 
         if (!shouldRunMiddlewares(request)) return NextResponse.next();
-        if (isApiRoute)
+        if (isApiRoute && !isExternalService)
             return setupGlobalMiddlewares({
                 request,
                 middlewares: [authenticate],
