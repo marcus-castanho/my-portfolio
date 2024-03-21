@@ -46,7 +46,7 @@ const articlesSchema = z.array(
     }),
 );
 
-function validateArticlesSchemaSchema(payload: unknown) {
+function validateArticlesSchema(payload: unknown) {
     const validation = articlesSchema.safeParse(payload);
     const { success } = validation;
 
@@ -79,7 +79,7 @@ export const getArticles: Fetch<
 
     if (status !== 200) return { success: false, status, data: null };
 
-    const data = validateArticlesSchemaSchema(resBody);
+    const data = validateArticlesSchema(resBody);
 
     return {
         success: true,
