@@ -1,4 +1,4 @@
-import { FetchType } from '.';
+import { FetchType } from '..';
 import { PROXY_URL } from './proxy';
 
 export function request({

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Fetch } from '..';
+import { Fetch } from '../..';
 import { InvalidResponseDataError } from '@/errors';
 import { request } from '../httpClient';
 
