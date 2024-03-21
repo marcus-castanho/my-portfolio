@@ -3,6 +3,7 @@
 import React, { ReactNode, FC } from 'react';
 import { FormField } from '@/components/FormField';
 import { match } from 'ts-pattern';
+import { useToast } from '@/context/ToastContext';
 
 type FormInputProps = {
     children: ReactNode;
@@ -24,11 +25,18 @@ const InputContainer: FC<FormInputProps> = ({ children, size }) => {
 };
 
 export const ContactForm = () => {
+    const { toast } = useToast();
+    const handleSubmit = () => {
+        toast('Message sent successfully', 'success');
+        return;
+    };
+
     return (
         <form
             className="w-full rounded-[2rem] bg-gray-950 lg:max-w-[600px]"
             onSubmit={(event) => {
                 event.preventDefault();
+                handleSubmit();
             }}
         >
             <div className="grid grid-cols-2">
