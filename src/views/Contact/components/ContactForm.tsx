@@ -22,8 +22,10 @@ export const ContactForm = () => {
         message: '',
     });
     const { toast } = useToast();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = () => {
+        setIsSubmitting(true);
         postEmail(form)
             .then(({ success }) => {
                 match(success)
@@ -39,7 +41,8 @@ export const ContactForm = () => {
             })
             .catch((error) => {
                 log({ payload: error, message: error.message, level: 'error' });
-            });
+            })
+            .finally(() => setIsSubmitting(false));
 
         return;
     };
@@ -126,6 +129,7 @@ export const ContactForm = () => {
                 <button
                     type="submit"
                     className="w-full rounded-full bg-blue-800 p-4 text-xl hover:brightness-125"
+                    disabled={isSubmitting}
                 >
                     Send
                 </button>
