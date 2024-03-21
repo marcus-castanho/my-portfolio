@@ -72,3 +72,15 @@ export class InternalServerError extends HTTPException {
         super(...[message, 500, 'InternalServerError', error]);
     }
 }
+
+export class BadRequest extends HTTPException {
+    constructor({
+        message = 'Bad Request',
+        error,
+    }: {
+        message?: string;
+        error?: Error;
+    }) {
+        super(...[message, 400, 'BadRequest', error]);
+    }
+}
