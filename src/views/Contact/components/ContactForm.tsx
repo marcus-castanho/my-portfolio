@@ -1,33 +1,46 @@
 'use client';
 
-import React, { ReactNode, FC } from 'react';
+import React, { useState } from 'react';
 import { FormField } from '@/components/FormField';
 import { match } from 'ts-pattern';
 import { useToast } from '@/context/ToastContext';
+import { postEmail } from '@/services/api/routes/postEmail';
+import { log } from '@/logger';
 
-type FormInputProps = {
-    children: ReactNode;
-    size?: 'sm' | 'md' | 'lg' | 'xlg';
-};
-const InputContainer: FC<FormInputProps> = ({ children, size }) => {
-    return (
-        <div
-            className={match(size)
-                .with('sm', () => 'h-8')
-                .with('md', () => 'h-12')
-                .with('lg', () => 'h-16')
-                .with('xlg', () => 'h-48')
-                .otherwise(() => '')}
-        >
-            {children}
-        </div>
-    );
+type FormState = {
+    name: string;
+    lastName: string;
+    email: string;
+    message: string;
 };
 
 export const ContactForm = () => {
+    const [form, setForm] = useState<FormState>({
+        name: '',
+        lastName: '',
+        email: '',
+        message: '',
+    });
     const { toast } = useToast();
+
     const handleSubmit = () => {
-        toast('Message sent successfully', 'success');
+        postEmail(form)
+            .then(({ success }) => {
+                match(success)
+                    .with(true, () =>
+                        toast('Message sent successfully', 'success'),
+                    )
+                    .otherwise(() =>
+                        toast(
+                            'Error sending the message. Please, try again later.',
+                            'error',
+                        ),
+                    );
+            })
+            .catch((error) => {
+                log({ payload: error, message: error.message, level: 'error' });
+            });
+
         return;
     };
 
@@ -42,50 +55,70 @@ export const ContactForm = () => {
             <div className="grid grid-cols-2">
                 <div className="col-span-2 row-span-1 sm:col-span-1">
                     <FormField.Root inputId="name" label="Name">
-                        <InputContainer size="md">
+                        <div className="h-12">
                             <FormField.TextInput
                                 inputId="name"
-                                onChange={() => {}}
+                                onChange={(value) =>
+                                    setForm((state) => ({
+                                        ...state,
+                                        name: value,
+                                    }))
+                                }
                                 placeHolder="Enter your name"
                                 required
                             />
-                        </InputContainer>
+                        </div>
                     </FormField.Root>
                 </div>
                 <div className="col-span-2 row-span-1 sm:col-span-1">
-                    <FormField.Root inputId="name" label="Last Name">
-                        <InputContainer size="md">
+                    <FormField.Root inputId="last-name" label="Last Name">
+                        <div className="h-12">
                             <FormField.TextInput
-                                inputId="name"
-                                onChange={() => {}}
+                                inputId="last-name"
+                                onChange={(value) =>
+                                    setForm((state) => ({
+                                        ...state,
+                                        lastName: value,
+                                    }))
+                                }
                                 placeHolder="Enter your last name"
                                 required
                             />
-                        </InputContainer>
+                        </div>
                     </FormField.Root>
                 </div>
                 <div className="col-span-2 row-span-1">
                     <FormField.Root inputId="email" label="Your e-mail">
-                        <InputContainer size="md">
+                        <div className="h-12">
                             <FormField.TextInput
                                 inputId="email"
-                                onChange={() => {}}
+                                onChange={(value) =>
+                                    setForm((state) => ({
+                                        ...state,
+                                        email: value,
+                                    }))
+                                }
                                 placeHolder="Enter an e-mail for me to reply you"
                                 required
                             />
-                        </InputContainer>
+                        </div>
                     </FormField.Root>
                 </div>
                 <div className="col-span-2 row-span-2">
                     <FormField.Root inputId="message" label="Message">
-                        <InputContainer size="xlg">
+                        <div className="h-48">
                             <FormField.TextArea
                                 inputId="message"
-                                onChange={() => {}}
+                                onChange={(value) =>
+                                    setForm((state) => ({
+                                        ...state,
+                                        message: value,
+                                    }))
+                                }
                                 placeHolder="Describe your message here"
                                 required
                             />
-                        </InputContainer>
+                        </div>
                     </FormField.Root>
                 </div>
             </div>
