@@ -67,10 +67,7 @@ type GetArticlesPayload = {
 export const getArticles: Fetch<
     { pages: number; items: Article[] },
     GetArticlesPayload
-> = async (
-    payload: { page: number; limit: number; username?: string },
-    fetchType,
-) => {
+> = async (payload: GetArticlesPayload, fetchType) => {
     const { limit, page, username } = payload;
     const response = await request({
         path: `/articles/?per_page=${limit}&page=${page}&username=${username}`,
