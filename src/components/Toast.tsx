@@ -39,22 +39,24 @@ export const Toast: FC<ToastProps> = ({ display, message, type }) => {
                 className={match(type)
                     .with(
                         'success',
-                        () => 'flex justify-center rounded bg-green-400 p-4',
+                        () =>
+                            'flex justify-center rounded-2xl bg-green-400 p-4',
                     )
                     .with(
                         'warning',
-                        () => 'flex justify-center rounded bg-yellow-400 p-4',
+                        () =>
+                            'flex justify-center rounded-2xl bg-yellow-400 p-4',
                     )
                     .with(
                         'info',
-                        () => 'flex justify-center rounded bg-gray-100 p-4',
+                        () => 'flex justify-center rounded-2xl bg-gray-100 p-4',
                     )
                     .with(
                         'error',
-                        () => 'flex justify-center rounded bg-red-500 p-4',
+                        () => 'flex justify-center rounded-2xl bg-red-500 p-4',
                     )
                     .otherwise(
-                        () => 'flex justify-center rounded bg-white p-4',
+                        () => 'flex justify-center rounded-2xl bg-white p-4',
                     )}
             >
                 <div className={`flex max-w-xs items-center justify-between`}>
