@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Fetch } from '..';
+import { Fetch } from '../..';
 import { InvalidResponseDataError } from '@/errors';
 import { request } from '../httpClient';
 
@@ -46,7 +46,7 @@ const articlesSchema = z.array(
     }),
 );
 
-function validateArticlesSchemaSchema(payload: unknown) {
+function validateArticlesSchema(payload: unknown) {
     const validation = articlesSchema.safeParse(payload);
     const { success } = validation;
 
@@ -67,10 +67,7 @@ type GetArticlesPayload = {
 export const getArticles: Fetch<
     { pages: number; items: Article[] },
     GetArticlesPayload
-> = async (
-    payload: { page: number; limit: number; username?: string },
-    fetchType,
-) => {
+> = async (payload: GetArticlesPayload, fetchType) => {
     const { limit, page, username } = payload;
     const response = await request({
         path: `/articles/?per_page=${limit}&page=${page}&username=${username}`,
@@ -82,7 +79,7 @@ export const getArticles: Fetch<
 
     if (status !== 200) return { success: false, status, data: null };
 
-    const data = validateArticlesSchemaSchema(resBody);
+    const data = validateArticlesSchema(resBody);
 
     return {
         success: true,

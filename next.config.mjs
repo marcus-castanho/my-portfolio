@@ -1,3 +1,5 @@
+import path from 'path';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
@@ -21,6 +23,21 @@ const nextConfig = {
                 destination: `${process.env.NEXT_PUBLIC_DEV_TO_API_URL}/:path*`,
             },
         ];
+    },
+    /**Handlebars must be precompiled in order to work with webpack. So this alias is used to import the module directly from the compiled folder /dist */
+    webpack(config) {
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            handlebars: path.resolve(
+                process.cwd(),
+                'node_modules',
+                'handlebars',
+                'dist',
+                'cjs',
+                'handlebars.js',
+            ),
+        };
+        return config;
     },
 };
 

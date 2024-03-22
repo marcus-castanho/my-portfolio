@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
+import { AppContextProvider } from '@/context';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +21,7 @@ export default function RootLayout({
             <body
                 className={`${inter.className} dark:bg-black dark:text-white`}
             >
-                {children}
+                <AppContextProvider>{children}</AppContextProvider>
             </body>
         </html>
     );

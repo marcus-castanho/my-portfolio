@@ -1,5 +1,4 @@
 import { FetchType } from '..';
-import { PROXY_URL } from './proxy';
 
 export function request({
     path,
@@ -15,10 +14,15 @@ export function request({
     options?: RequestInit;
     fetchType?: FetchType;
 }) {
-    const apiUrl = PROXY_URL;
+    const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+    const headers = options?.headers;
 
-    return fetch(`${apiUrl}${path}`, {
+    return fetch(`/api/${path}`, {
         ...options,
+        headers: {
+            Authorization: `${API_KEY}`,
+            ...headers,
+        },
         ...fetchType.options,
     });
 }

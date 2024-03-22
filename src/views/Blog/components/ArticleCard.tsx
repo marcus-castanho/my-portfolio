@@ -20,10 +20,10 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                         src={article.cover_image}
                         alt="article-cover-image"
                         fill
-                        className="rounded-t-lg object-contain"
+                        className="rounded-t-[2rem] object-contain"
                     />
                 </div>
-                <div className="flex h-80 w-full flex-col justify-between gap-4 rounded-b-lg bg-gray-950 p-4 sm:h-72">
+                <div className="flex h-80 w-full flex-col justify-between gap-4 rounded-b-[2rem] bg-gray-950 p-4 sm:h-72">
                     <div className="flex flex-col gap-4">
                         <h2 className="text-xl font-bold">{article.title}</h2>
                         <p className="overflow-hidden text-ellipsis">
