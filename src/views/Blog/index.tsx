@@ -60,7 +60,7 @@ export const Blog: FC<BlogProps> = async ({ page }) => {
 
     return (
         <Main>
-            <div className="flex h-full flex-col">
+            <div className="flex h-full flex-col items-center">
                 <Header />
                 <PageTitle title="blog" />
                 {pageIsEmpty ? (
@@ -68,7 +68,7 @@ export const Blog: FC<BlogProps> = async ({ page }) => {
                         <NoContentMessage />
                     </div>
                 ) : (
-                    <div className="flex flex-1 flex-col">
+                    <div className="flex flex-1 flex-col sm:max-w-[90%]">
                         <div className="flex flex-1 flex-col p-8">
                             <ArticlesList articles={articles.items} />
                             <Navigation
