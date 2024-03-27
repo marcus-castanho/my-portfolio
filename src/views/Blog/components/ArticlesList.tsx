@@ -13,7 +13,7 @@ export const ArticlesList: FC<ArticlesListProps> = ({ articles }) => {
                 className={
                     articles.length < 3
                         ? 'flex flex-col items-center justify-center gap-8 sm:flex-row'
-                        : 'grid grid-cols-1 gap-8 sm:grid-cols-3'
+                        : 'grid grid-cols-1 gap-8 sm:grid-cols-2 2xl:grid-cols-3'
                 }
             >
                 {articles.map((article, index) => {

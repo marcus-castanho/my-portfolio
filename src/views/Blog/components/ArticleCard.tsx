@@ -14,8 +14,8 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
 
     return (
         <Link href={article.url} target="_blank">
-            <div className="w-[calc(100px*3)] hover:brightness-125 sm:w-[calc(100px*5)] md:w-[calc(100px*4)]">
-                <div className="relative h-[calc(42px*3)] max-h-[calc(42px*3)] sm:h-[calc(42px*5)] sm:max-h-[calc(42px*5)] md:h-[calc(42px*4)] md:max-h-[calc(42px*4)]">
+            <div className="w-[calc(100px*3)] hover:brightness-125 lg:w-[calc(100px*4)]">
+                <div className="relative h-[calc(42px*3)] max-h-[calc(42px*3)] lg:h-[calc(42px*4)] lg:max-h-[calc(42px*4)]">
                     <Image
                         src={article.cover_image}
                         alt="article-cover-image"
@@ -23,11 +23,17 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                         className="rounded-t-[2rem] object-contain"
                     />
                 </div>
-                <div className="flex h-80 w-full flex-col justify-between gap-4 rounded-b-[2rem] bg-gray-950 p-4 sm:h-72">
+                <div className="flex h-[350px] w-full flex-col justify-between gap-4 rounded-b-[2rem] bg-gray-950 p-4 lg:h-72">
                     <div className="flex flex-col gap-4">
-                        <h2 className="text-xl font-bold">{article.title}</h2>
+                        <h2 className="max-h-40 text-xl font-bold">
+                            {article.title.length > 128
+                                ? `${article.title.slice(0, 128)}...`
+                                : article.title}
+                        </h2>
                         <p className="overflow-hidden text-ellipsis">
-                            {article.description}
+                            {article.description.length > 110
+                                ? `${article.description.slice(0, 110)}`
+                                : article.description}
                         </p>
                     </div>
                     <div className="flex items-end justify-between">

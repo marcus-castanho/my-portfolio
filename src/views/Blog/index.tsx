@@ -13,7 +13,7 @@ type BlogProps = {
 };
 export const Blog: FC<BlogProps> = async ({ page }) => {
     const DEV_TO_PROFILE_USERNAME = 'marcus_castanho';
-    const ITEMS_PER_PAGE = 9;
+    const ITEMS_PER_PAGE = 12;
 
     const handleRequestResponse = async (
         reqFnPromise: ReturnType<typeof getArticles>,
