@@ -4,6 +4,7 @@ import { ChevronLeftIcon } from './icons/ChevronLeftIcon';
 import { ChevronRightIcon } from './icons/ChevronRightIcon';
 import { match } from 'ts-pattern';
 import { colors } from '@/styles/theme';
+import classNames from 'classnames';
 
 const GapBox = () => {
     return <div className="p-2">...</div>;
@@ -39,21 +40,22 @@ const NavButton: FC<NavButtonProps> = ({
         <button
             aria-label={label}
             onClick={() => onClick()}
-            className={match({ isSelected, disabled })
-                .with(
-                    { isSelected: true },
-                    () =>
-                        'flex items-center justify-between rounded-md bg-gray-200 p-1 text-black',
-                )
-                .with(
-                    { disabled: true },
-                    () =>
-                        'flex items-center justify-between rounded-md border-[1px] border-transparent p-1',
-                )
-                .otherwise(
-                    () =>
-                        'flex items-center justify-between rounded-md border-[1px] border-transparent p-1 hover:border-gray-100',
-                )}
+            className={classNames(
+                'flex items-center justify-between rounded-md',
+                match({ isSelected, disabled })
+                    .with(
+                        { isSelected: true },
+                        () => 'bg-gray-200 p-1 text-black',
+                    )
+                    .with(
+                        { disabled: true },
+                        () => 'border-[1px] border-transparent p-1',
+                    )
+                    .otherwise(
+                        () =>
+                            'border-[1px] border-transparent p-1 hover:border-gray-100',
+                    ),
+            )}
             disabled={disabled}
         >
             {children}
@@ -90,7 +92,11 @@ export const PaginationNav: FC<PaginationNavProps> = ({
                 disabled={isFirstPage}
             >
                 <ChevronLeftIcon size={16} fillColor={colors.gray[100]} />
-                <div className={isFirstPage ? 'pr-2 text-gray-100' : 'pr-2'}>
+                <div
+                    className={classNames('pr-2', {
+                        'text-gray-100': isFirstPage,
+                    })}
+                >
                     Previous
                 </div>
             </NavButton>
@@ -119,7 +125,7 @@ export const PaginationNav: FC<PaginationNavProps> = ({
                 onClick={() => changePage('next')}
                 disabled={isLastPage}
             >
-                <div className={isLastPage ? 'pl-2 text-gray-200' : 'pl-2'}>
+                <div className={classNames('pl-2', { 'text-gray-200': true })}>
                     Next
                 </div>
                 <ChevronRightIcon size={16} fillColor={colors.gray[100]} />

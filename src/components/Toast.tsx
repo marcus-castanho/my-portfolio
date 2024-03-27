@@ -4,6 +4,7 @@ import { CheckIcon } from './icons/CheckIcon';
 import { WarningFilledIcon } from './icons/WarningFilledIcon';
 import { InfoIcon } from './icons/InfoIcon';
 import { ErrorIcon } from './icons/ErrorIcon';
+import classNames from 'classnames';
 
 export type ToastType = 'success' | 'warning' | 'info' | 'error';
 
@@ -36,28 +37,15 @@ export const Toast: FC<ToastProps> = ({ display, message, type }) => {
             className="fixed right-0 top-0 z-20 max-sm:w-full max-sm:p-1 sm:right-3 sm:top-3"
         >
             <div
-                className={match(type)
-                    .with(
-                        'success',
-                        () =>
-                            'flex justify-center rounded-2xl bg-green-400 p-4',
-                    )
-                    .with(
-                        'warning',
-                        () =>
-                            'flex justify-center rounded-2xl bg-yellow-400 p-4',
-                    )
-                    .with(
-                        'info',
-                        () => 'flex justify-center rounded-2xl bg-gray-100 p-4',
-                    )
-                    .with(
-                        'error',
-                        () => 'flex justify-center rounded-2xl bg-red-500 p-4',
-                    )
-                    .otherwise(
-                        () => 'flex justify-center rounded-2xl bg-white p-4',
-                    )}
+                className={classNames(
+                    'flex justify-center rounded-2xl',
+                    match(type)
+                        .with('success', () => 'bg-green-400 p-4')
+                        .with('warning', () => 'bg-yellow-400 p-4')
+                        .with('info', () => 'bg-gray-100 p-4')
+                        .with('error', () => 'bg-red-500 p-4')
+                        .otherwise(() => 'bg-white p-4'),
+                )}
             >
                 <div className={`flex max-w-xs items-center justify-between`}>
                     <div className="w-6">{icon}</div>

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 import { AppContextProvider } from '@/context';
+import classNames from 'classnames';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,7 +20,9 @@ export default function RootLayout({
     return (
         <html lang="en" className="dark">
             <body
-                className={`${inter.className} dark:bg-black dark:text-white`}
+                className={classNames('dark:bg-black dark:text-white', {
+                    [`${inter.className}`]: true,
+                })}
             >
                 <AppContextProvider>{children}</AppContextProvider>
             </body>
