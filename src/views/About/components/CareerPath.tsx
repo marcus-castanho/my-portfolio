@@ -104,7 +104,7 @@ const TimeStep: FC<TimeStepProps> = ({ position, isLast, data }) => {
         .otherwise(() => <></>);
 };
 
-export const CarrerPath = () => {
+export const CareerPath = () => {
     const TIME_POINTS = [
         {
             company: 'Mutant',
