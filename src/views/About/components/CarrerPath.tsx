@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { FC } from 'react';
 import { match } from 'ts-pattern';
 
@@ -10,11 +11,14 @@ const TimeDahsedLine: FC<TimeDahsedLineProps> = ({ isSpacer, start, end }) => {
     return (
         <div className="flex flex-col items-center">
             {start && <div className="h-3 w-3 rounded-[50%] bg-white" />}
-            {isSpacer ? (
-                <div className="w-3" />
-            ) : (
-                <div className="flex w-0 flex-1 flex-col border-[1px] border-dashed border-white" />
-            )}
+            {
+                <div
+                    className={classNames(
+                        'flex w-0 flex-1 flex-col border-white',
+                        isSpacer ? ['w-3'] : ['w-0 border-[1px] border-dashed'],
+                    )}
+                />
+            }
             {end && <div className="h-3 w-3 rounded-[50%] bg-white" />}
         </div>
     );
@@ -33,11 +37,10 @@ type TimePointProps = {
 const TimePoint: FC<TimePointProps> = ({ isSpacer = false, data }) => {
     return (
         <div
-            className={
-                isSpacer
-                    ? 'relative flex  w-[300px] flex-col gap-4 p-4 pb-8 max-sm:hidden sm:w-[400px]'
-                    : 'relative flex  w-[300px] flex-col gap-4 p-4 pb-8 sm:w-[400px]'
-            }
+            className={classNames(
+                'relative flex w-[300px] flex-col gap-4 p-4 pb-8 sm:w-[400px]',
+                isSpacer ? ['max-sm:hidden'] : [],
+            )}
         >
             {!isSpacer && (
                 <>
