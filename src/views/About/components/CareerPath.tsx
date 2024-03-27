@@ -76,7 +76,7 @@ const TimeStep: FC<TimeStepProps> = ({ position, isLast, data }) => {
         .with({ isEvenPosition: true, isLast: false }, () => (
             <div className="flex justify-center max-sm:flex-row-reverse">
                 <TimePoint data={data} />
-                <TimeDahsedLine start end={isLast} />
+                <TimeDahsedLine start />
                 <TimePoint isSpacer />
             </div>
         ))
