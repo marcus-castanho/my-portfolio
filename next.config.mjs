@@ -11,6 +11,13 @@ const nextConfig = {
                 port: '',
                 pathname: '/**',
             },
+            /**GitHub raw content CDN host */
+            {
+                protocol: 'https',
+                hostname: 'raw.githubusercontent.com',
+                port: '',
+                pathname: '/**',
+            },
         ],
     },
     async rewrites() {
