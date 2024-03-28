@@ -60,8 +60,8 @@ type ProjectCardProps = {
 };
 export const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
     return (
-        <div className="flex max-w-[calc(2.5*120px+64px)] flex-col gap-4 rounded-[2rem] bg-gray-950 p-8 hover:brightness-125 lg:max-w-[calc(3*120px+64px)]">
-            <div className="relative h-[calc(2.5*60.9px)] w-[calc(2.5*120px)] lg:h-[calc(3*60.9px)] lg:w-[calc(3*120px)]">
+        <div className="flex max-w-[calc(2*120px+64px)] flex-col gap-4 rounded-[2rem] bg-gray-950 p-8 hover:brightness-125 sm:max-w-[calc(2.5*120px+64px)] lg:max-w-[calc(3*120px+64px)]">
+            <div className="relative h-[calc(2*60.9px)] w-[calc(2*120px)] sm:h-[calc(2.5*60.9px)] sm:w-[calc(2.5*120px)] lg:h-[calc(3*60.9px)] lg:w-[calc(3*120px)]">
                 <Image
                     src={project.coverImgSrc}
                     alt="article-cover-image"

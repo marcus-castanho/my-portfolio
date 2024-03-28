@@ -19,7 +19,7 @@ export const ProjectsList = () => {
         },
         {
             title: 'My personal portfolio',
-            description: `The website you are on now!`,
+            description: `The website you're on now!`,
             url: 'https://marcuscastanho.vercel.app/',
             repoUrl: 'https://github.com/marcus-castanho/my-portfolio',
             coverImgSrc: '/assets/index_screenshot.png',
