@@ -14,8 +14,8 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
 
     return (
         <Link href={article.url} target="_blank">
-            <div className="w-[calc(100px*3)] hover:brightness-125 lg:w-[calc(100px*4)]">
-                <div className="relative h-[calc(42px*3)] max-h-[calc(42px*3)] lg:h-[calc(42px*4)] lg:max-h-[calc(42px*4)]">
+            <div className="w-[calc(100px*2.8)] hover:brightness-125 lg:w-[calc(100px*4)]">
+                <div className="relative h-[calc(42px*2.8)] max-h-[calc(42px*2.8)] lg:h-[calc(42px*4)] lg:max-h-[calc(42px*4)]">
                     <Image
                         src={article.cover_image}
                         alt="article-cover-image"
