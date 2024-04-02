@@ -38,7 +38,7 @@ const TimePoint: FC<TimePointProps> = ({ isSpacer = false, data }) => {
     return (
         <div
             className={classNames(
-                'relative flex w-[300px] flex-col gap-4 p-4 pb-8 sm:w-[400px]',
+                'relative flex flex-col gap-4 p-4 pb-8 landscape:w-1/2 md:landscape:w-[400px]',
                 isSpacer ? ['max-sm:hidden'] : [],
             )}
         >
