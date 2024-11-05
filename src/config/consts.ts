@@ -3,4 +3,5 @@ export const SOCIAL_MEDIA_PROFILE_LINKS = {
     linkedin: 'https://www.linkedin.com/in/marcus-castanho',
     twitter: 'https://twitter.com/marcus_castanho',
     bio_link: 'https://marcuscastanho.bio.link',
+    bluesky: 'https://bsky.app/profile/marcus-castanho.bsky.social',
 };
