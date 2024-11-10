@@ -24,17 +24,11 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                     />
                 </div>
                 <div className="flex h-[350px] w-full flex-col justify-between gap-4 rounded-b-[2rem] bg-gray-950 p-4 lg:h-72">
-                    <div className="flex flex-col gap-4">
-                        <h2 className="max-h-40 text-xl font-bold">
-                            {article.title.length > 128
-                                ? `${article.title.slice(0, 128)}...`
-                                : article.title}
+                    <div className="flex flex-1 flex-col gap-4">
+                        <h2 className="line-clamp-4 text-xl font-bold sm:line-clamp-3 sm:h-2/5">
+                            {article.title}
                         </h2>
-                        <p className="overflow-hidden text-ellipsis">
-                            {article.description.length > 110
-                                ? `${article.description.slice(0, 110)}`
-                                : article.description}
-                        </p>
+                        <p className="line-clamp-6">{article.description}</p>
                     </div>
                     <div className="flex items-end justify-between">
                         <time className="flex text-sm text-gray-200">
