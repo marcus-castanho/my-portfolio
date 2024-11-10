@@ -17,17 +17,15 @@ type ProjectInfoProps = {
 };
 const ProjectInfo: FC<ProjectInfoProps> = ({ project }) => {
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-1 flex-col gap-2 overflow-hidden">
             <h2 className="max-h-40 text-xl font-bold">
                 {project.title.length > 128
                     ? `${project.title.slice(0, 128)}...`
                     : project.title}
             </h2>
-            <p className="overflow-hidden text-ellipsis">
-                {project.description.length > 110
-                    ? `${project.description.slice(0, 110)}`
-                    : project.description}
-            </p>
+            <div className="flex-1 overflow-hidden">
+                <p className="line-clamp-5">{project.description}</p>
+            </div>
         </div>
     );
 };
