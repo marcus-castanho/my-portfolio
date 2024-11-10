@@ -11,6 +11,13 @@ const nextConfig = {
                 port: '',
                 pathname: '/**',
             },
+            /**DEV.to CDN 2 host */
+            {
+                protocol: 'https',
+                hostname: 'media2.dev.to',
+                port: '',
+                pathname: '/**',
+            },
             /**GitHub raw content CDN host */
             {
                 protocol: 'https',
