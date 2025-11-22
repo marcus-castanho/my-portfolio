@@ -48,11 +48,5 @@ export async function postEmailcontroller(request: NextRequest) {
         message: validator.escape(message),
     });
 
-    await sendMail({
-        subject: `Message from ${name} ${lastName} (${email})`,
-        text: message,
-        html: htmlToSend,
-    });
-
     return new Response(undefined, { status: 201 });
 }
